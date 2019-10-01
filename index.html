@@ -1,0 +1,29 @@
+<html>
+<head>
+	 <script type="text/javascript" src="scripts/vendor/angular.min.js"></script>
+	 <script type="text/javascript" src="app.js"></script>
+	 <script type="text/javascript" src="scripts/NarrowItDownController.js"></script>
+	 <script type="text/javascript" src="scripts/MenuSearchService.js"></script>
+	  <script type="text/javascript" src="foundItemsDirective.js"></script>
+</head>
+<body ng-app="NarrowItDownApp">
+
+	<div class="row" ng-controller="NarrowItDownController as NarrowItDownController">
+		
+		<h3> Item list </h3>
+		
+		<input ng-model="NarrowItDownController.searchText" placeholder="Search item by description" type="text"/>
+		<button ng-click="NarrowItDownController.getMatchedMenuItems (NarrowItDownController.searchText);">Narrow It Down For Me!</button>
+		
+		<found-items items="NarrowItDownController.found.items" on-remove="NarrowItDownController.onRemove(index)">
+			
+		</found-items>
+
+			<span ng-if="NarrowItDownController.found.items.length===0">Nothing found</span>
+	</div>
+
+	
+
+</body>
+
+</html>
